@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour
@@ -18,21 +17,25 @@ public class BuildManager : MonoBehaviour
     }
     #endregion
 
-    public GameObject standardTurretPrefab;
-
-    public GameObject MissileLauncherPrefab;
-
     public GameObject BuildEffect;
 
-    private static TurretStats.TurretBluePrint turretToBuild;
+    private MoneyUI moneyui;
+
+    public static TurretStats.TurretBluePrint turretToBuild;
 
     public bool canBuild { get { return turretToBuild != null; } }
     public bool hasMoney { get { return PlayerStats.money >= turretToBuild.cost; } }
+
+    private void Start()
+    {
+        moneyui = MoneyUI.instance;
+    }
 
     public void SelectTurretToBuild(TurretStats.TurretBluePrint turret)
     {
         turretToBuild = turret;
     }
+
 
     public void BuildTurretOn(Node node)
     {
@@ -48,7 +51,7 @@ public class BuildManager : MonoBehaviour
         Renderer rend = node.getRend();
         rend.material.color = node.ErrorColor;
         GameObject effect = (GameObject)Instantiate(BuildEffect, node.transform.position + node.positionOffset, Quaternion.identity);
-        Destroy(effect, 1f);
+        Destroy(effect, 3f);
 
     }
 

@@ -9,7 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 128764922398330037, guid: 1e4393e2b70827341b935c6136cb42d3, type: 3}
       propertyPath: looping
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 128764922398330037, guid: 1e4393e2b70827341b935c6136cb42d3, type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 1354047850280245468, guid: 1e4393e2b70827341b935c6136cb42d3, type: 3}
       propertyPath: m_Materials.Array.data[0]

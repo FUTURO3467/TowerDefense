@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
 
     public float speed = 70f;
 
+    public int damage = 50;
+
     public float explosionRadius = 0f;
 
     public void Seek(Transform _target)
@@ -76,7 +78,19 @@ public class Bullet : MonoBehaviour
 
     void Damage(Transform enemy)
     {
-        Destroy(enemy.gameObject);
+        Enemies e = enemy.GetComponent<Enemies>();
+
+        if(e == null)
+        {
+            Debug.LogError("Attention! Il n'y a pas de script sur l'enemmi !");
+
+            return;
+        }
+        else
+        {
+            e.TakeDammage(damage);
+        }
+
     }
 
 }

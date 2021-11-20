@@ -6,6 +6,7 @@ public class Shop : MonoBehaviour
 
     public TurretStats.TurretBluePrint standardTurret;
     public TurretStats.TurretBluePrint missileLauncher;
+    public TurretStats.TurretBluePrint laserTurret;
 
     private BuildManager buildManager;
 
@@ -23,6 +24,13 @@ public class Shop : MonoBehaviour
     {
         buildManager.SelectTurretToBuild(missileLauncher);
     }
+
+    public void SelectLaserTurret()
+    {
+        buildManager.SelectTurretToBuild(laserTurret);
+    }
+
+    
 
 }
 
